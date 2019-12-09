@@ -75,8 +75,4 @@
     </div>
     <!-- /.row -->
   </div>
-  <!-- /.container -->
-
-    <!-- Footer -->
-
 @endsection
