@@ -18,8 +18,10 @@
         <p>Posted on {{$post->published_at}}</p>
         <hr>
         <!-- Preview Image -->
+        @if($post->image)
         <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
         <hr>
+        @endif
         <!-- Post Content -->
         <p class="lead">
        
