@@ -1,10 +1,7 @@
-@extends('layouts.app')
+{{ csrf_field() }}
 
-@section('content')
-<form action="{{route('posts.update' ,$post->id)}}" method="POST">
-@method('PUT')
-@csrf
-<label>Title</label>
+<div class="form-group" >
+    <label>Title</label>
     <input type="text" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : ''}}" placeholder="Enter title" value="{{old('title',$post->title)}}">
     {!! $errors->first('title','<span class="invalid-feedback ">:message</span>') !!}
 </div>
@@ -25,5 +22,3 @@
 </div>
 
 <button type="submit" class="btn btn-secondary">Enviar</button>
-</form>
-@endsection 

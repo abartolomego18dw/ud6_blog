@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -43,7 +43,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::all();
+        $post = new Post;
+        $post -> title = $request -> input('title');
+        $post -> excerpt = $request -> input('excerpt');
+        $post -> body = $request -> input('body');
+        $post -> image = $request -> input('img');
+        $post -> category_id = $request -> input('categoria');
+        $post -> user_id = Auth()->user()->id;
+        $post -> save();
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -82,7 +91,13 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post -> title = $request -> input('title');
+        $post -> excerpt = $request -> input('excerpt');
+        $post -> body = $request -> input('body');
+        $post -> image = $request -> input('img');
+        $post -> save();
+        return redirect(route('posts.show', $post ->id));
     }
 
     /**
@@ -93,6 +108,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect(route('posts.index'));
     }
 }
