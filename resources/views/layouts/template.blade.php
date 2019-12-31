@@ -9,6 +9,7 @@
     <title>Dashboard Template · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/dashboard/">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <!-- Bootstrap core CSS -->
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">

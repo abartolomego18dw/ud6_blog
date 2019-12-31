@@ -31,4 +31,17 @@ class HomeController extends Controller
         $users = User::All();
         return view('admin')->with(['users'=>$users]);
     }
+    public function edit($id)
+    {
+        $users = User::find($id);
+        return view('edit', compact('users'));
+    }
+    public function update(Request $request, $id)
+    {
+        $user = User::All();
+        $users = User::find($id);
+        $users -> role_id = $request->input('rol');
+        $users-> save();
+        return redirect('admin')->with(['users'=>$user]);
+    }
 }
